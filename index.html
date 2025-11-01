@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Magnetic Note</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #fafafa;
+      color: #222;
+    }
+
+    header {
+      background-color: #1b1b1b;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      font-size: 1.1em;
+      font-style: italic;
+      color: #f8b400;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .options label {
+      font-weight: normal;
+    }
+
+    .prices {
+      margin-top: 20px;
+      background: #f8b4001a;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    .prices p {
+      margin: 5px 0;
+      font-weight: 500;
+    }
+
+    .btn {
+      background: #f8b400;
+      color: #1b1b1b;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #ffd65b;
+    }
+
+    .contact {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 1.1em;
+    }
+
+    footer {
+      text-align: center;
+      background: #1b1b1b;
+      color: #ccc;
+      padding: 15px 10px;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>The Magnetic Note</h1>
+    <p>"Why settle for ordinary when your page can hold on magnetically?"</p>
+  </header>
+
+  <section>
+    <h2>Pick Your Order</h2>
+    <form id="orderForm">
+      <div class="options">
+        <label><input type="checkbox" name="item" value="Magnetic Card - ₹99"> Magnetic Card — ₹99</label>
+        <label><input type="checkbox" name="item" value="Greeting Card - ₹149"> Greeting Card — ₹149</label>
+        <label><input type="checkbox" name="item" value="Personalized Magnetic Card - ₹110"> Personalized Magnetic Card — ₹110</label>
+      </div>
+
+      <div class="prices">
+        <p><strong>Prices:</strong></p>
+        <p>Magnetic Card — ₹99</p>
+        <p>Greeting Card — ₹149</p>
+        <p>Personalized Magnetic Card — ₹110</p>
+      </div>
+
+      <button type="button" class="btn" onclick="confirmOrder()">Confirm Order</button>
+    </form>
+
+    <div class="contact" id="contactInfo" style="display:none;">
+      <p><strong>Thank you for choosing The Magnetic Note!</strong></p>
+      <p>To place your order, please contact us at 📞 <strong>8178931136</strong></p>
+      <p>Payment Method: <strong>Online or School</strong></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 The Magnetic Note. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function confirmOrder() {
+      const checkedItems = Array.from(document.querySelectorAll('input[name="item"]:checked'))
+                                .map(item => item.value);
+
+      if (checkedItems.length === 0) {
+        alert("Please select at least one item to order.");
+        return;
+      }
+
+      let orderSummary = "You selected:\n\n" + checkedItems.join("\n") + "\n\nPlease confirm your order below.";
+      alert(orderSummary);
+
+      document.getElementById("contactInfo").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
