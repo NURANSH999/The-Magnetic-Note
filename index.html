@@ -1,189 +1,128 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The Magnetic Note — Order</title>
-  <style>
-    :root{
-      --cream:#FAF8F2;
-      --black:#111111;
-      --deep-red:#8B0000;
-      --card-bg:#ffffff;
-    }
-    html,body{height:100%;margin:0;font-family:Arial, Helvetica, sans-serif;}
-    body{
-      background:var(--cream);
-      color:var(--black);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:28px;
-    }
-    .wrap{
-      width:100%;
-      max-width:760px;
-      background:var(--card-bg);
-      border-radius:14px;
-      box-shadow: 0 8px 30px rgba(17,17,17,0.08);
-      padding:26px;
-      border:1px solid rgba(0,0,0,0.06);
-      text-align:center;
-    }
-    .logo{
-      width:160px;
-      height:auto;
-      display:block;
-      margin:6px auto 12px auto;
-    }
-    h1{
-      margin:6px 0 2px 0;
-      font-size:22px;
-    }
-    p.tag{
-      margin:0 0 18px 0;
-      color:#555;
-      font-size:14px;
-    }
-    input[type="text"]{
-      width:100%;
-      padding:10px 12px;
-      font-size:15px;
-      border-radius:9px;
-      border:1.5px solid rgba(0,0,0,0.12);
-      margin-bottom:14px;
-      box-sizing:border-box;
-    }
-    .products{
-      background:rgba(0,0,0,0.02);
-      padding:14px;
-      border-radius:10px;
-      border:1px dashed rgba(0,0,0,0.1);
-    }
-    .product{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:10px 6px;
-      border-bottom:1px solid rgba(0,0,0,0.05);
-    }
-    .product:last-child{border-bottom:0}
-    .product input[type="checkbox"]{
-      width:20px; height:20px; transform:scale(1.15);
-      cursor:pointer;
-    }
-    .pname{flex:1;font-size:15px;}
-    .price{font-weight:700;color:var(--deep-red);font-size:14px;}
-    .totalRow{
-      display:flex;
-      justify-content:space-between;
-      margin-top:16px;
-      padding-top:8px;
-      border-top:1px solid rgba(0,0,0,0.1);
-    }
-    .totalRow .right{font-weight:800;font-size:20px;}
-    .actions{
-      display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;
-    }
-    .btn{
-      flex:1;min-width:160px;padding:10px 12px;border-radius:10px;font-weight:700;
-      cursor:pointer;border:0;font-size:15px;
-    }
-    .btn.primary{
-      background:var(--deep-red);color:#fff;
-    }
-    .btn.ghost{
-      background:transparent;color:var(--deep-red);border:1.5px solid rgba(139,0,0,0.4);
-    }
-    .contact{margin-top:14px;font-size:14px;color:var(--deep-red);font-weight:700;}
-    .note{margin-top:10px;color:#666;font-size:13px;}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Magnetic Note</title>
+
+<style>
+body{
+    background:#000;
+    color:#fff;
+    font-family:Arial, sans-serif;
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+#wrap{
+    max-width:600px;
+    margin:20px auto;
+    background:#111;
+    border-radius:12px;
+    padding:20px;
+}
+header{
+    padding:20px 0;
+}
+.price{
+    color:#FFD700;
+    font-weight:bold;
+}
+.product{
+    text-align:left;
+    margin:10px 0;
+}
+input[type="checkbox"]{
+    transform:scale(1.3);
+}
+input[type="text"]{
+    width:90%;
+    padding:8px;
+    border-radius:6px;
+    border:none;
+    font-size:16px;
+    margin:10px 0;
+}
+button{
+    margin-top:20px;
+    background:#FFD700;
+    color:#000;
+    border:none;
+    font-size:18px;
+    padding:12px 24px;
+    border-radius:6px;
+    cursor:pointer;
+}
+.total{
+    margin-top:15px;
+    font-size:20px;
+    color:#FFD700;
+}
+</style>
+
 </head>
 <body>
-  <div class="wrap">
-    <img id="brandLogo" class="logo" src="logo.png" alt="Brand Logo">
 
+<header>
+    <img id="brandLogo" src="./logo.png" style="height:90px">
     <h1>The Magnetic Note</h1>
-    <p class="tag">Bookmarks & greeting cards — crafted with love</p>
+</header>
 
-    <label>Your name</label>
-    <input id="custName" type="text" placeholder="Enter your name (required)">
+<div id="wrap">
 
-    <div class="products">
-      <div class="product">
-        <input type="checkbox" class="item" data-price="99">
-        <div class="pname">Magnetic Bookmark</div>
-        <div class="price">₹99 RS</div>
-      </div>
-      <div class="product">
-        <input type="checkbox" class="item" data-price="149">
-        <div class="pname">Greeting Card</div>
-        <div class="price">₹149 RS</div>
-      </div>
-      <div class="product">
-        <input type="checkbox" class="item" data-price="200">
-        <div class="pname">Magnetic Greeting Card</div>
-        <div class="price">₹200 RS</div>
-      </div>
-      <div class="product">
-        <input type="checkbox" class="item" data-price="110">
-        <div class="pname">Personalized Magnetic Bookmark</div>
-        <div class="price">₹110 RS</div>
-      </div>
+    <input type="text" id="custName" placeholder="Your Name">
 
-      <div class="totalRow">
-        <div>Total:</div>
-        <div id="totalDisplay">₹0</div>
-      </div>
+    <div class="product">
+        <input type="checkbox" class="p" data-price="99"> Magnetic Bookmark - <span class="price">₹99</span>
     </div>
 
-    <div class="actions">
-      <button class="btn primary" id="whatsappBtn">Send Order on WhatsApp</button>
-      <button class="btn ghost" id="clearBtn">Clear</button>
+    <div class="product">
+        <input type="checkbox" class="p" data-price="149"> Greeting Card - <span class="price">₹149</span>
     </div>
 
-    <div class="contact">Contact: 8178931136</div>
-    <div class="note">Payment: Online or at school</div>
-  </div>
+    <div class="product">
+        <input type="checkbox" class="p" data-price="200"> Magnetic Greeting Card - <span class="price">₹200</span>
+    </div>
 
-  <script>
-    const items = document.querySelectorAll('.item');
-    const totalDisplay = document.getElementById('totalDisplay');
-    const nameInput = document.getElementById('custName');
+    <div class="product">
+        <input type="checkbox" class="p" data-price="110"> Personalized Magnetic Bookmark - <span class="price">₹110</span>
+    </div>
 
-    function calc() {
-      let t = 0;
-      items.forEach(i=>{ if(i.checked) t+=Number(i.dataset.price) })
-      totalDisplay.textContent = "₹"+t;
-      return t;
+    <div class="total" id="totalAmount">Total: ₹0</div>
+
+    <button onclick="orderNow()">Confirm Order</button>
+
+    <p style="margin-top:20px;color:#FFD700; font-size:18px;">
+        Contact: <b>8178931136</b>
+    </p>
+
+</div>
+
+<script>
+const p = document.querySelectorAll('.p');
+p.forEach(x=>x.addEventListener('change',updateTotal));
+
+function updateTotal(){
+    let t=0;
+    p.forEach(x=>{if(x.checked) t+= +x.dataset.price;});
+    document.getElementById("totalAmount").innerText="Total: ₹"+t;
+}
+
+function orderNow(){
+    const name = document.getElementById('custName').value.trim();
+    if(!name){
+        alert("Please enter your name.");
+        return;
     }
-    items.forEach(i=>i.addEventListener('change', calc));
-
-    document.getElementById('clearBtn').onclick = ()=>{
-      items.forEach(i=>i.checked=false);
-      nameInput.value="";
-      calc();
+    let selected=[];
+    p.forEach(x=>{if(x.checked) selected.push("₹"+x.dataset.price);});
+    if(selected.length==0){
+        alert("Please select at least one item.");
+        return;
     }
+    alert("Thank you "+name+"!\n\nOrder Total: ₹"+document.getElementById("totalAmount").innerText.replace('Total: ₹','')+"\n\nContact 8178931136 to confirm payment.");
+}
+</script>
 
-    const WA_NUMBER = "918178931136";
-
-    document.getElementById('whatsappBtn').onclick = ()=>{
-      let total = calc();
-      if(total==0){ alert("select at least 1 item");return; }
-      let name = nameInput.value.trim()||"---";
-
-      let list=[];
-      items.forEach(i=>{
-        if(i.checked){
-          let nm=i.closest('.product').querySelector('.pname').innerText;
-          let pr=i.dataset.price;
-          list.push(`• ${nm} – ₹${pr} RS`);
-        }
-      });
-
-      let msg = `Order From: ${name}\n\nItems:\n${list.join("\n")}\n\nTotal: ₹${total}`;
-      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`);
-    }
-  </script>
 </body>
 </html>
